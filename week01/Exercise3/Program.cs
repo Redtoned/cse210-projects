@@ -6,31 +6,40 @@ class Program
     static void Main(string[] args)
     {
         string input;
-        int magicNumber;
-        Random randomGenerator = new Random();
-        int number = randomGenerator.Next(1, 101);
+        string playAgain;
 
         do
         {
-            Console.WriteLine("What is the magic number?");
-            input = Console.ReadLine();
-            magicNumber = int.Parse(input);
+            int magicNumber;
+            int guessCount = 0;
+            Random randomGenerator = new Random();
+            int number = randomGenerator.Next(1, 101);
 
-            if (magicNumber < number)
+            do
             {
-                Console.WriteLine("Higher");
-            }
-            else if (magicNumber > number)
-            {
-                Console.WriteLine("Lower");
-            }
-        } while (magicNumber != number);
+                Console.WriteLine("What is the magic number?");
+                input = Console.ReadLine();
+                magicNumber = int.Parse(input);
+                guessCount++;
 
-        Console.WriteLine("You guessed the magic number!");
+                if (magicNumber < number)
+                {
+                    Console.WriteLine("Higher");
+                }
+                else if (magicNumber > number)
+                {
+                    Console.WriteLine("Lower");
+                }
+            } while (magicNumber != number);
 
-        for (int i = 0; i < 10; i++)
-        {
-            Console.WriteLine("You made " + i + " guesses.");
-        }
+            Console.WriteLine("You guessed the magic number!");
+            Console.WriteLine("You made " + guessCount + " guesses.");
+
+            Console.WriteLine("Do you want to play again? (yes/no)");
+            playAgain = Console.ReadLine();
+
+        } while (playAgain == "yes");
+
+        Console.WriteLine("Thanks for playing the game!");
     }
 }
