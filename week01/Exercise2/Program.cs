@@ -10,29 +10,58 @@ class Program
         string input = Console.ReadLine();
         int grade = int.Parse(input);
 
+        string letterGrade;
+        string modifier = "";
+
         if (grade >= 90)
         {
-            Console.WriteLine("You received an A.");
+            letterGrade = "A";
         }
-
         else if (grade >= 80)
         {
-            Console.WriteLine("You received a B.");
+            letterGrade = "B";
         }
-
         else if (grade >= 70)
         {
-            Console.WriteLine("You received a C.");
+            letterGrade = "C";
         }
-
         else if (grade >= 60)
         {
-            Console.WriteLine("You received a D.");
+            letterGrade = "D";
         }
-
         else
         {
-            Console.WriteLine("You received an F.");
+            letterGrade = "F";
+        }
+
+        int remainder = grade % 10;
+
+        if (letterGrade != "F")
+        {
+            if (remainder >= 7)
+            {
+                modifier = "+";
+            }
+            else if (remainder <= 2)
+            {
+                modifier = "-";
+            }
+        }
+
+        if (letterGrade == "A" && modifier == "+")
+        {
+            modifier = "";
+        }
+
+        Console.WriteLine($"You received a {letterGrade}{modifier}.");
+
+        if (grade >= 70)
+        {
+            Console.WriteLine("Congratulations! You passed the class.");
+        }
+        else
+        {
+            Console.WriteLine("Sorry, you failed the class.");
         }
     }
 }
