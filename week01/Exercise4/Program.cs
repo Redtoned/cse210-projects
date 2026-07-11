@@ -23,17 +23,14 @@ class Program
             numbers.Add(number);
         }
 
-        // Core requirement 1: sum
         int sum = 0;
         foreach (int n in numbers)
         {
             sum += n;
         }
 
-        // Core requirement 2: average
         double average = (double)sum / numbers.Count;
 
-        // Core requirement 3: largest number
         int max = numbers[0];
         foreach (int n in numbers)
         {
@@ -47,7 +44,6 @@ class Program
         Console.WriteLine($"The average is: {average}");
         Console.WriteLine($"The largest number is: {max}");
 
-        // Stretch challenge 1: smallest positive number
         int? smallestPositive = null;
         foreach (int n in numbers)
         {
@@ -66,7 +62,6 @@ class Program
             Console.WriteLine("There is no positive number in the list.");
         }
 
-        // Stretch challenge 2: sort and display the list
         numbers.Sort();
 
         Console.WriteLine("The sorted list is:");
