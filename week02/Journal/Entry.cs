@@ -5,12 +5,14 @@ public class Entry
     private string _date;
     private string _prompt;
     private string _response;
+    private string _feeling;
 
-    public Entry(string date, string prompt, string response)
+    public Entry(string date, string prompt, string response, string feeling)
     {
         _date = date;
         _prompt = prompt;
         _response = response;
+        _feeling = feeling;
     }
 
     // Display this entry's information to the screen.
@@ -21,6 +23,7 @@ public class Entry
         Console.WriteLine($"Date: {_date}");
         Console.WriteLine($"Prompt: {_prompt}");
         Console.WriteLine($"Response: {_response}");
+        Console.WriteLine($"Feeling: {_feeling}");
         Console.WriteLine();
     }
 
@@ -28,7 +31,7 @@ public class Entry
     // Using a separator unlikely to appear in normal journal text.
     public string ToFileString()
     {
-        return $"{_date}~|~{_prompt}~|~{_response}";
+        return $"{_date}~|~{_prompt}~|~{_response}~|~{_feeling}";
     }
 
     // Create an Entry from a single line read from a file.
@@ -36,11 +39,11 @@ public class Entry
     {
         string[] parts = line.Split(new string[] { "~|~" }, StringSplitOptions.None);
 
-        if (parts.Length != 3)
+        if (parts.Length != 4)
         {
             return null;
         }
 
-        return new Entry(parts[0], parts[1], parts[2]);
+        return new Entry(parts[0], parts[1], parts[2], parts[3]);
     }
 }

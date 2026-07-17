@@ -63,9 +63,12 @@ public class Program
         Console.Write("> ");
         string response = Console.ReadLine();
 
+        Console.Write("How are you feeling today? ");
+        string feeling = Console.ReadLine();
+
         string date = DateTime.Now.ToShortDateString();
 
-        Entry newEntry = new Entry(date, prompt, response);
+        Entry newEntry = new Entry(date, prompt, response, feeling);
         theJournal.AddEntry(newEntry);
 
         Console.WriteLine();
