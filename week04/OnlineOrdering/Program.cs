@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // --- Order 1: Customer in the USA ---
+
         Address address1 = new Address("123 Maple Street", "Springfield", "IL", "USA");
         Customer customer1 = new Customer("John Smith", address1);
 
@@ -18,7 +18,6 @@ class Program
 
         Order order1 = new Order(products1, customer1);
 
-        // --- Order 2: Customer outside the USA ---
         Address address2 = new Address("45 King's Road", "Toronto", "Ontario", "Canada");
         Customer customer2 = new Customer("Emily Tremblay", address2);
 
@@ -30,7 +29,6 @@ class Program
 
         Order order2 = new Order(products2, customer2);
 
-        // Display results for both orders
         List<Order> orders = new List<Order> { order1, order2 };
         int orderNumber = 1;
 
